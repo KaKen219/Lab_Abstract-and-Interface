@@ -1,5 +1,5 @@
-                   <<abstract>>
-                      Person
+<<abstract>>
+Person
 ------------------------------------------------
 - FirstName : string
 - LastName  : string
@@ -8,46 +8,40 @@
 ------------------------------------------------
 + Register() : void
 + ShowInfo() : void
-------------------------------------------------
-        ▲
-        │
- ┌──────┼───────────────┐
- │      │               │
- │      │               │
-Student Teacher     GeneralPerson
-Student
----------------------------------
-- Major : string
-- StudentID : string
----------------------------------
-+ ShowInfo() : void
----------------------------------
-Inheritance: Student → Person
-Teacher
----------------------------------
-- Major : string
-- AcademicRank : string
----------------------------------
-+ ShowInfo() : void
-+ Train() : void
-+ Approve(p : Person) : void
----------------------------------
-Inheritance: Teacher → Person
-Implements: ISpeaker
-GeneralPerson
----------------------------------
-- Workplace : string
-- Position  : string
----------------------------------
-+ ShowInfo() : void
-+ Train() : void
-+ Approve(p : Person) : void
----------------------------------
-Inheritance: GeneralPerson → Person
-Implements: ISpeaker
+
 
 <<interface>>
 ISpeaker
----------------------------------
+------------------------------------------------
++ Train() : void
++ Approve(p : Person) : void
+
+
+Student ----------------------|> Person
+------------------------------------------------
+- Major : string
+- StudentID : string
+------------------------------------------------
++ ShowInfo() : void
+
+
+Teacher ----------------------|> Person
+Teacher ----------------------|> ISpeaker
+------------------------------------------------
+- Major : string
+- AcademicRank : string
+------------------------------------------------
++ ShowInfo() : void
++ Train() : void
++ Approve(p : Person) : void
+
+
+GeneralPerson ---------------|> Person
+GeneralPerson ---------------|> ISpeaker
+------------------------------------------------
+- Workplace : string
+- Position  : string
+------------------------------------------------
++ ShowInfo() : void
 + Train() : void
 + Approve(p : Person) : void
